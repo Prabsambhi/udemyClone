@@ -71,7 +71,7 @@ const Help = () => {
             </button>
           </form>
         </div>
-        <div className="absolute bottom-0 md:right-[10%] text-xl text-white">
+        <div className="absolute hidden md:bottom-0 md:right-[10%] md:block text-xl text-white">
           {/* <HelpAnimation /> */}Help Animation
         </div>
       </div>
