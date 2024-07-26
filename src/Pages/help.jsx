@@ -1,6 +1,17 @@
 import React, { useState } from "react";
 import Dummy from "../assets/help.jpeg";
 import Layout from "../Layout/layout";
+import ProfileSVG from "../svg/profile";
+import TroubleshootSVG from "../svg/troubleshoot";
+import LearningSVG from "../svg/learning";
+import PurchaseSVG from "../svg/purchase";
+import MobileSVG from "../svg/mobile";
+import TrustSVG from "../svg/trust";
+import StartSVG from "../svg/start";
+import InstructorSVG from "../svg/instructor";
+import PromotionSVG from "../svg/promotion";
+import ManageSVG from "../svg/manage";
+import BuildSVG from "../svg/build";
 // import HelpAnimation from './HelpAnimation';
 
 const Help = () => {
@@ -171,7 +182,7 @@ const Help = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                   <div className="border-2 h-56 flex flex-col justify-center items-center  py-5">
                     <div className="flex justify-center h-1/2">
-                      <img className="h-full" src={Dummy} alt="" />
+                      <StartSVG />
                     </div>
                     <div className="p-3 h-1/2 flex flex-col items-center">
                       <h1 className="text-base sm:text-xl font-bold">
@@ -184,7 +195,7 @@ const Help = () => {
                   </div>
                   <div className="border-2 h-56 flex flex-col justify-center items-center py-5">
                     <div className="flex justify-center h-1/2">
-                      <img className="h-full" src={Dummy} alt="" />
+                      <ProfileSVG />
                     </div>
                     <div className="p-3 h-1/2 flex flex-col items-center">
                       <h1 className="text-base sm:text-xl font-bold ">
@@ -197,7 +208,7 @@ const Help = () => {
                   </div>
                   <div className="border-2 h-56 flex flex-col justify-center items-center  py-5">
                     <div className="flex justify-center h-1/2">
-                      <img className="h-full" src={Dummy} alt="" />
+                      <TroubleshootSVG />
                     </div>
                     <div className="p-3 h-1/2 flex flex-col items-center">
                       <h1 className="text-base sm:text-xl font-bold">
@@ -210,7 +221,7 @@ const Help = () => {
                   </div>
                   <div className="border-2 h-56 flex flex-col justify-center items-center  py-5">
                     <div className="flex justify-center h-1/2">
-                      <img className="h-full" src={Dummy} alt="" />
+                      <LearningSVG />
                     </div>
                     <div className="p-3 h-1/2 flex flex-col items-center">
                       <h1 className="text-base sm:text-xl font-bold">
@@ -223,7 +234,7 @@ const Help = () => {
                   </div>
                   <div className="border-2 h-56 flex flex-col justify-center items-center  py-5">
                     <div className="flex justify-center h-1/2">
-                      <img className="h-full" src={Dummy} alt="" />
+                      <PurchaseSVG />
                     </div>
                     <div className="p-3 h-1/2 flex flex-col items-center">
                       <h1 className="text-base sm:text-xl font-bold">
@@ -237,7 +248,7 @@ const Help = () => {
                   </div>
                   <div className="border-2 h-56 flex flex-col justify-center items-center  py-5">
                     <div className="flex justify-center h-1/2">
-                      <img className="h-full" src={Dummy} alt="" />
+                      <MobileSVG />
                     </div>
                     <div className="p-3 h-1/2 flex flex-col items-center">
                       <h1 className="text-base sm:text-xl font-bold">Mobile</h1>
@@ -248,7 +259,7 @@ const Help = () => {
                   </div>
                   <div className="border-2 h-56 flex flex-col justify-center items-center  py-5">
                     <div className="flex justify-center h-1/2">
-                      <img className="h-full" src={Dummy} alt="" />
+                      <TrustSVG />
                     </div>
                     <div className="p-3 h-1/2 flex flex-col items-center">
                       <h1 className="text-base sm:text-xl font-bold">
@@ -267,7 +278,7 @@ const Help = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                   <div className="border-2 h-56 flex flex-col justify-center items-center py-5">
                     <div className="flex justify-center h-1/2">
-                      <img className="h-full" src={Dummy} alt="" />
+                      <InstructorSVG/>
                     </div>
                     <div className="p-3 h-1/2 flex flex-col items-center">
                       <h1 className="text-base sm:text-xl font-bold">
@@ -281,7 +292,7 @@ const Help = () => {
                   </div>
                   <div className="border-2 h-56 flex flex-col justify-center items-center  py-5">
                     <div className="flex justify-center h-1/2">
-                      <img className="h-full" src={Dummy} alt="" />
+                      <PromotionSVG/>
                     </div>
                     <div className="p-3 h-1/2 flex flex-col items-center">
                       <h1 className="text-base sm:text-xl font-bold">
@@ -295,7 +306,7 @@ const Help = () => {
 
                   <div className="border-2 h-56 flex flex-col justify-center items-center  py-5">
                     <div className="flex justify-center h-1/2">
-                      <img className="h-full" src={Dummy} alt="" />
+                      <BuildSVG/>
                     </div>
                     <div className="p-3 h-1/2 flex flex-col items-center">
                       <h1 className="text-base sm:text-xl font-bold">
@@ -308,7 +319,7 @@ const Help = () => {
                   </div>
                   <div className="border-2 h-56 flex flex-col justify-center items-center  py-5">
                     <div className="flex justify-center h-1/2">
-                      <img className="h-full" src={Dummy} alt="" />
+                      <ManageSVG/>
                     </div>
                     <div className="p-3 h-1/2 flex flex-col items-center">
                       <h1 className="text-base sm:text-xl font-bold">
@@ -321,7 +332,7 @@ const Help = () => {
                   </div>
                   <div className="border-2 h-56 flex flex-col justify-center items-center  py-5">
                     <div className="flex justify-center h-1/2">
-                      <img className="h-full" src={Dummy} alt="" />
+                      <TrustSVG/>
                     </div>
                     <div className="p-3 h-1/2 flex flex-col items-center">
                       <h1 className="text-base sm:text-xl font-bold">
