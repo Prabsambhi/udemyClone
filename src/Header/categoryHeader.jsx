@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-// import axios from "axios";
+import React, { useState } from "react";
+import DownSVG from "../svg/down";
 
 const CategoryShow = () => {
-
   const [categories, setCategories] = useState([
     {
       id: 0,
@@ -31,7 +30,7 @@ const CategoryShow = () => {
       id: 0,
       sub: ["Web Development", "Mobile Development", "Game Development"],
     },
-    { id: 1, sub: ["Enterpreneurship", "Communication", "Sales"] },
+    { id: 1, sub: ["Entrepreneurship", "Communication", "Sales"] },
     {
       id: 2,
       sub: ["Network & Security", "Hardware", "Operating Systems & Servers"],
@@ -43,75 +42,101 @@ const CategoryShow = () => {
     },
   ]);
   const [activeCategory, setActiveCategory] = useState(null);
-
-  // const fetchCategories = async () => {
-  //     try {
-  //         const response = await axios.get("/category/getCategory");
-  //         setCategories(response.data.categories);
-  //     } catch (error) {
-  //         console.error("Error fetching categories:", error);
-  //     }
-  // };
-
-  // const fetchSubcategories = async (categoryId) => {
-  //     if (!subcategories[categoryId]) {
-  //         try {
-  //             const response = await axios.get(`/category/getSubCategory/${categoryId}`);
-  //             setSubcategories(prev => ({
-  //                 ...prev,
-  //                 [categoryId]: response.data.subcategory
-  //             }));
-  //         } catch (error) {
-  //             console.error("Error fetching subcategories:", error);
-  //         }
-  //     }
-  // };
-
-  // useEffect(() => {
-  //     fetchCategories();
-  // }, []);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSubcategories, setActiveSubcategories] = useState(null);
 
   const handleCategoryHover = (categoryId) => {
     setActiveCategory(categoryId);
-    //   fetchSubcategories(categoryId);
   };
 
   const handleMouseLeave = () => {
     setActiveCategory(null);
   };
 
+  const handleMobileMenuToggle = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleMobileCategoryClick = (categoryId) => {
+    if (activeSubcategories === categoryId) {
+      setActiveSubcategories(null);
+    } else {
+      setActiveSubcategories(categoryId);
+    }
+  };
+
   return (
     <div>
       <div className="relative" onMouseLeave={handleMouseLeave}>
-        <ul className="relative mx-auto flex justify-between w-full bg-white  shadow-md">
+        <div className="md:hidden flex justify-between items-center px-4 py-3 bg-white shadow-md">
+          <button
+            className="text-gray-800 text-base "
+            onClick={handleMobileMenuToggle}
+          >
+            Categories
+          </button>
+        </div>
+        <ul
+          className={`hidden md:flex md:justify-between w-full bg-white shadow-md ${
+            isMobileMenuOpen ? "block" : "hidden"
+          } md:block`}
+        >
           {categories.map((category) => (
             <li
               key={category?.id}
               onMouseEnter={() => handleCategoryHover(category?.id)}
-              className={`relative  text-center text-gray-800 w-full z-10 block cursor-pointer py-3 text-sm sm:text-base ${
-                activeCategory === category.id
-                  ? "bg-zinc-200"
-                  : ""
+              onClick={() => handleMobileCategoryClick(category?.id)}
+              className={`relative text-center text-gray-800 w-full z-10 block cursor-pointer py-3 text-sm sm:text-base ${
+                activeCategory === category.id ? "bg-zinc-200" : ""
               } `}
             >
               {category?.category}
             </li>
           ))}
         </ul>
-        {activeCategory > -1 && subcategories[activeCategory] && (
-          <div className="absolute z-10 top-full left-0 w-full bg-opacity-95 text-white bg-zinc-800 shadow-lg ">
-            <div className="flex justify-around ">
+        {(activeCategory > -1 && subcategories[activeCategory] && (
+          <div className="absolute z-10 top-full left-0 w-full bg-opacity-95 text-white bg-zinc-800 shadow-lg hidden md:block">
+            <div className="flex justify-around">
               {subcategories[activeCategory].sub.map((subcategory, index) => (
                 <button
                   key={index}
-                  className="px-6 text-xs  md:text-base w-full py-4 hover:text-sky-300"
+                  className="px-6 text-xs md:text-base w-full py-4 hover:text-sky-300"
                 >
                   {subcategory}
                 </button>
               ))}
             </div>
           </div>
-        )}
+        )) ||
+          (isMobileMenuOpen && (
+            <div className="md:hidden">
+              {categories.map((category) => (
+                <div key={category.id}>
+                  <button
+                    className="w-full flex justify-between items-center text-xs text-left px-4 py-2 text-zinc-800 bg-zinc-100 border-t border-b border-gray-200"
+                    onClick={() => handleMobileCategoryClick(category.id)}
+                  >
+                    {category.category}
+                    <DownSVG/>
+                  </button>
+                  {activeSubcategories === category.id && (
+                    <div className="bg-white ">
+                      {subcategories[category.id].sub.map(
+                        (subcategory, index) => (
+                          <button
+                            key={index}
+                            className="w-full text-left px-4 py-2 text-xs text-zinc-600 border-b border-zinc-200"
+                          >
+                            {subcategory}
+                          </button>
+                        )
+                      )}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          ))}
       </div>
     </div>
   );
