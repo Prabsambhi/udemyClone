@@ -1,17 +1,8 @@
 import React, { useState } from "react";
-import Dummy from "../assets/help.jpeg";
-import Layout from "../Layout/layout";
-import ProfileSVG from "../svg/profile";
-import TroubleshootSVG from "../svg/troubleshoot";
-import LearningSVG from "../svg/learning";
-import PurchaseSVG from "../svg/purchase";
-import MobileSVG from "../svg/mobile";
-import TrustSVG from "../svg/trust";
-import StartSVG from "../svg/start";
-import InstructorSVG from "../svg/instructor";
-import PromotionSVG from "../svg/promotion";
-import ManageSVG from "../svg/manage";
-import BuildSVG from "../svg/build";
+import faqData from "../data/helpPageData";
+const { faqSubscriber, faqInstructor, subscriberTopic, instructorTopic } =
+  faqData;
+
 // import HelpAnimation from './HelpAnimation';
 
 const Help = () => {
@@ -115,57 +106,28 @@ const Help = () => {
             {activeTab === "subscriber" && (
               <div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-white bg-gradient-to-r from-sky-900 to-cyan-700 text-center">
-                  <div className="text-sm xl:text-base h-16 flex items-center justify-center px-3">
-                    Refund Status: Common Questions
-                  </div>
-                  <div className="text-sm xl:text-base h-16 flex items-center justify-center px-3">
-                    Payment Method on J2C
-                  </div>
-                  <div className="text-sm xl:text-base h-16 flex items-center justify-center px-3">
-                    Lifetime Access
-                  </div>
-                  <div className="text-sm xl:text-base h-16 flex items-center justify-center px-3">
-                    How to Find Your Missing Course
-                  </div>
-                  <div className="text-sm xl:text-base h-16 flex items-center justify-center px-3">
-                    How to Download Certificate of Completion on Browser
-                  </div>
-                  <div className="text-sm xl:text-base h-16 flex items-center justify-center px-3">
-                    How to Refund a Course
-                  </div>
-                  <div className="text-sm xl:text-base h-16 flex items-center justify-center px-3">
-                    Downloading Course Resources
-                  </div>
-                  <div className="text-sm xl:text-base h-16 flex items-center justify-center px-3">
-                    Learning With J2C: Frequently Asked Questions
-                  </div>
-                  <div className="text-sm xl:text-base h-16 flex items-center justify-center px-3">
-                    Troubleshooting Payment Failures
-                  </div>
+                  {faqSubscriber.map((item, index) => (
+                    <div
+                      key={index}
+                      className="text-sm xl:text-base h-16 flex items-center justify-center px-3"
+                    >
+                      {item}
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
             {activeTab === "instructor" && (
               <div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-white bg-gradient-to-r from-sky-900 to-cyan-700 text-center">
-                  <div className="text-sm xl:text-base h-16 flex items-center justify-center px-3">
-                    J2C Course Quality Checklist
-                  </div>
-                  <div className=" text-sm xl:text-base h-16 flex items-center justify-center px-3">
-                    How to Become a Premeium Instructor
-                  </div>
-                  <div className=" text-sm xl:text-base h-16 flex items-center justify-center px-3">
-                    Promote Your Course With Coupons and Referral Link
-                  </div>
-                  <div className=" text-sm xl:text-base h-16 flex items-center justify-center px-3">
-                    Instructor Revenue Share
-                  </div>
-                  <div className=" text-sm xl:text-base h-16 flex items-center justify-center px-3">
-                    Instructor Promotional Agreements and J2C Deals
-                  </div>
-                  <div className=" text-sm xl:text-base h-16 flex items-center justify-center px-3">
-                    Be an Instructor:Frequently Asked Questions
-                  </div>
+                  {faqInstructor.map((item, index) => (
+                    <div
+                      key={index}
+                      className="text-sm xl:text-base h-16 flex items-center justify-center px-3"
+                    >
+                      {item}
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
@@ -180,169 +142,41 @@ const Help = () => {
             {activeTab === "subscriber" && (
               <div className="pb-14">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                  <div className="border-2 h-56 flex flex-col justify-center items-center  py-5">
-                    <div className="flex justify-center h-1/2">
-                      <StartSVG />
+                  {subscriberTopic.map((item, index) => (
+                    <div
+                      key={index}
+                      className="border-2 h-56 flex flex-col justify-center items-center  py-5"
+                    >
+                      <div className="flex justify-center h-1/2">
+                        <item.SVGcomponent />
+                      </div>
+                      <div className="p-3 h-1/2 flex flex-col items-center">
+                        <h1 className="text-base sm:text-xl font-bold">
+                          {item.heading}
+                        </h1>
+                        <p className="text-sm text-center">{item.content}</p>
+                      </div>
                     </div>
-                    <div className="p-3 h-1/2 flex flex-col items-center">
-                      <h1 className="text-base sm:text-xl font-bold">
-                        Getting started
-                      </h1>
-                      <p className="text-sm text-center">
-                        Learn how J2C works and how to start learning.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="border-2 h-56 flex flex-col justify-center items-center py-5">
-                    <div className="flex justify-center h-1/2">
-                      <ProfileSVG />
-                    </div>
-                    <div className="p-3 h-1/2 flex flex-col items-center">
-                      <h1 className="text-base sm:text-xl font-bold ">
-                        Account/Profile
-                      </h1>
-                      <p className="text-sm text-center">
-                        Manage Your account settings.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="border-2 h-56 flex flex-col justify-center items-center  py-5">
-                    <div className="flex justify-center h-1/2">
-                      <TroubleshootSVG />
-                    </div>
-                    <div className="p-3 h-1/2 flex flex-col items-center">
-                      <h1 className="text-base sm:text-xl font-bold">
-                        Troubleshooting
-                      </h1>
-                      <p className="text-sm text-center">
-                        Experiencing a technical issue? check here.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="border-2 h-56 flex flex-col justify-center items-center  py-5">
-                    <div className="flex justify-center h-1/2">
-                      <LearningSVG />
-                    </div>
-                    <div className="p-3 h-1/2 flex flex-col items-center">
-                      <h1 className="text-base sm:text-xl font-bold">
-                        Learning Experience
-                      </h1>
-                      <p className="text-sm text-center ">
-                        Everything about the J2C learning experience.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="border-2 h-56 flex flex-col justify-center items-center  py-5">
-                    <div className="flex justify-center h-1/2">
-                      <PurchaseSVG />
-                    </div>
-                    <div className="p-3 h-1/2 flex flex-col items-center">
-                      <h1 className="text-base sm:text-xl font-bold">
-                        Purchase/Refunds
-                      </h1>
-                      <p className="text-sm text-center">
-                        Learn about purchasing course, how to send gifts, and
-                        refunds.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="border-2 h-56 flex flex-col justify-center items-center  py-5">
-                    <div className="flex justify-center h-1/2">
-                      <MobileSVG />
-                    </div>
-                    <div className="p-3 h-1/2 flex flex-col items-center">
-                      <h1 className="text-base sm:text-xl font-bold">Mobile</h1>
-                      <p className="text-sm text-center">
-                        On the go? Learn about our mobile app.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="border-2 h-56 flex flex-col justify-center items-center  py-5">
-                    <div className="flex justify-center h-1/2">
-                      <TrustSVG />
-                    </div>
-                    <div className="p-3 h-1/2 flex flex-col items-center">
-                      <h1 className="text-base sm:text-xl font-bold">
-                        Trust & Safety
-                      </h1>
-                      <p className="text-sm text-center">
-                        Trust & Safety information and reporting.
-                      </p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             )}
             {activeTab === "instructor" && (
               <div className="pb-14">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                  <div className="border-2 h-56 flex flex-col justify-center items-center py-5">
-                    <div className="flex justify-center h-1/2">
-                      <InstructorSVG/>
+                  {instructorTopic.map((item, index) => (
+                    <div className="border-2 h-56 flex flex-col justify-center items-center py-5">
+                      <div className="flex justify-center h-1/2">
+                        <item.SVGcomponent />
+                      </div>
+                      <div className="p-3 h-1/2 flex flex-col items-center">
+                        <h1 className="text-base sm:text-xl font-bold">
+                          {item.heading}
+                        </h1>
+                        <p className="text-sm text-center">{item.content}</p>
+                      </div>
                     </div>
-                    <div className="p-3 h-1/2 flex flex-col items-center">
-                      <h1 className="text-base sm:text-xl font-bold">
-                        Instructor Payments
-                      </h1>
-                      <p className="text-sm text-center">
-                        Understand the revenue share and how to receive
-                        payments.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="border-2 h-56 flex flex-col justify-center items-center  py-5">
-                    <div className="flex justify-center h-1/2">
-                      <PromotionSVG/>
-                    </div>
-                    <div className="p-3 h-1/2 flex flex-col items-center">
-                      <h1 className="text-base sm:text-xl font-bold">
-                        Selling & Promotion
-                      </h1>
-                      <p className="text-sm text-center">
-                        Learn about the announcement and promotional tools.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="border-2 h-56 flex flex-col justify-center items-center  py-5">
-                    <div className="flex justify-center h-1/2">
-                      <BuildSVG/>
-                    </div>
-                    <div className="p-3 h-1/2 flex flex-col items-center">
-                      <h1 className="text-base sm:text-xl font-bold">
-                        Course Building
-                      </h1>
-                      <p className="text-sm text-center">
-                        Build your course curriculum and landing page.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="border-2 h-56 flex flex-col justify-center items-center  py-5">
-                    <div className="flex justify-center h-1/2">
-                      <ManageSVG/>
-                    </div>
-                    <div className="p-3 h-1/2 flex flex-col items-center">
-                      <h1 className="text-base sm:text-xl font-bold">
-                        Course Management
-                      </h1>
-                      <p className="text-sm text-center">
-                        Maintain your course and engage with students.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="border-2 h-56 flex flex-col justify-center items-center  py-5">
-                    <div className="flex justify-center h-1/2">
-                      <TrustSVG/>
-                    </div>
-                    <div className="p-3 h-1/2 flex flex-col items-center">
-                      <h1 className="text-base sm:text-xl font-bold">
-                        Trust & Safety
-                      </h1>
-                      <p className="text-sm text-center">
-                        Policy and copyright questions and guidance.
-                      </p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             )}
