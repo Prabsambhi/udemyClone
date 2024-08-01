@@ -197,7 +197,7 @@ const CategoryShow = () => {
               key={category?._id}
               onMouseEnter={() => handleCategoryHover(category?._id)}
               onClick={() => handleMobileCategoryClick(category?._id)}
-              className={`relative text-gray-800 z-10 flex justify-evenly cursor-pointer py-3 text-xs sm:text-sm ${
+              className={`relative text-gray-800 z-10 block justify-evenly cursor-pointer py-3 text-xs sm:text-sm ${
                 activeCategory === category._id ? "text-sky-700" : ""
               } `}
             >
@@ -206,14 +206,14 @@ const CategoryShow = () => {
           ))}
         </ul>
         {(activeCategory && subcategories[activeCategory] && (
-          <div className="absolute z-10 top-full left-0 w-full bg-opacity-95 text-white bg-zinc-800 shadow-lg hidden md:block">
+          <div className="absolute z-20 top-full left-0 w-full bg-opacity-60 text-white bg-sky-800 shadow-lg hidden md:block">
             <div className="flex justify-evenly">
               {subcategories[activeCategory].map((subcategory, index) => (
                 <button
                   key={index}
                   className=" text-xs sm:text-sm py-4 hover:text-sky-300"
                 >
-                  {subcategory.subCategoryName}
+                  {subcategory?.subCategoryName}
                 </button>
               ))}
             </div>
@@ -227,17 +227,17 @@ const CategoryShow = () => {
                     className="w-full flex justify-between items-center text-xs text-left px-4 py-2 text-zinc-800 bg-zinc-100 border-t border-b border-gray-200"
                     onClick={() => handleMobileCategoryClick(category._id)}
                   >
-                    {category.categoryName}
+                    {category?.categoryName}
                     <DownSVG />
                   </button>
-                  {activeSubcategories === category._id && (
+                  {activeSubcategories === category?._id && (
                     <div className="bg-white">
-                      {subcategories[category._id].map((subcategory, index) => (
+                      {subcategories[category?._id].map((subcategory, index) => (
                         <button
                           key={index}
                           className="w-full text-left px-4 py-2 text-xs text-zinc-600 border-b border-zinc-200"
                         >
-                          {subcategory.subCategoryName}
+                          {subcategory?.subCategoryName}
                         </button>
                       ))}
                     </div>
@@ -248,6 +248,8 @@ const CategoryShow = () => {
           ))}
       </div>
     </div>
+
+    
   );
 };
 
