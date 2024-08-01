@@ -16,7 +16,7 @@ const Cart = () => {
           {
             cart.map(item => (
               <div key={item.id} className='flex border-t border-zinc-300 py-3' >
-                <img src={item.thumbnail} alt="banner" className='h-[40px] sm:h-[50px] md:h-[70px]' />
+                <img src={item.thumbnail} alt="banner" className='h-[40px] sm:h-[50px] md:h-[70px]' loading='lazy'/>
                 <div className='flex justify-between items-start grow pl-4'>
                   <div className='w-full mr-3 flex flex-col justify-between h-fullbg-slate-300'>
                     <h1 className='font-bold text-sm sm:text-base'>{item.title}</h1>

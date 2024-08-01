@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import CategoryShow from "./categoryHeader";
+import Navbar from "./navbar";
 
 const Header = () => {
   return (
@@ -14,6 +15,7 @@ const Header = () => {
           | Get the skills with J2C Business.
         </span>
       </div>
+      {/* <Navbar /> */}
       <nav className="px-3 md:px-8 lg:px-12 py-5 text-center bg-white flex justify-between border-zinc-300 border-b">
         <Link to="/help">
           <button className="hover:underline">Help</button>
@@ -24,7 +26,7 @@ const Header = () => {
           </button>
         </Link>
       </nav>
-      <CategoryShow/>
+      <CategoryShow />
     </>
   );
 };
